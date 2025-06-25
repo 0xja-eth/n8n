@@ -7,7 +7,10 @@ FROM --platform=linux/amd64 n8nio/base:${NODE_VERSION} AS builder
 WORKDIR /src
 COPY . /src
 RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store --mount=type=cache,id=pnpm-metadata,target=/root/.cache/pnpm/metadata DOCKER_BUILD=true pnpm install --frozen-lockfile
+
 RUN pnpm build
+# ENV TURBO_LOG_DISABLE=true
+# RUN TURBO_CACHE_DIR=/tmp/.turbo pnpm build -- --no-cache
 
 # Delete all dev dependencies
 RUN jq 'del(.pnpm.patchedDependencies)' package.json > package.json.tmp; mv package.json.tmp package.json
