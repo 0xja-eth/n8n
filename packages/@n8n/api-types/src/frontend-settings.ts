@@ -1,4 +1,6 @@
-import type { ExpressionEvaluatorType, LogLevel, WorkflowSettings } from 'n8n-workflow';
+import type { LogLevel, WorkflowSettings } from 'n8n-workflow';
+
+import { type InsightsDateRange } from './schemas/insights.schema';
 
 export interface IVersionNotificationSettings {
 	enabled: boolean;
@@ -16,7 +18,7 @@ export interface ITelemetrySettings {
 	config?: ITelemetryClientConfig;
 }
 
-export type AuthenticationMethod = 'email' | 'ldap' | 'saml';
+export type AuthenticationMethod = 'email' | 'ldap' | 'saml' | 'oidc';
 
 export interface IUserManagementSettings {
 	quota: number;
@@ -82,6 +84,11 @@ export interface FrontendSettings {
 			loginLabel: string;
 			loginEnabled: boolean;
 		};
+		oidc: {
+			loginEnabled: boolean;
+			loginUrl: string;
+			callbackUrl: string;
+		};
 		ldap: {
 			loginLabel: string;
 			loginEnabled: boolean;
@@ -109,6 +116,7 @@ export interface FrontendSettings {
 	isMultiMain: boolean;
 	pushBackend: 'sse' | 'websocket';
 	communityNodesEnabled: boolean;
+	unverifiedCommunityNodesEnabled: boolean;
 	aiAssistant: {
 		enabled: boolean;
 	};
@@ -126,6 +134,7 @@ export interface FrontendSettings {
 		sharing: boolean;
 		ldap: boolean;
 		saml: boolean;
+		oidc: boolean;
 		logStreaming: boolean;
 		advancedExecutionFilters: boolean;
 		variables: boolean;
@@ -154,16 +163,10 @@ export interface FrontendSettings {
 	variables: {
 		limit: number;
 	};
-	expressions: {
-		evaluator: ExpressionEvaluatorType;
-	};
 	mfa: {
 		enabled: boolean;
 	};
 	folders: {
-		enabled: boolean;
-	};
-	logsView: {
 		enabled: boolean;
 	};
 	banners: {
@@ -189,9 +192,25 @@ export interface FrontendSettings {
 	partialExecution: {
 		version: 1 | 2;
 	};
-	insights: {
-		enabled: boolean;
+	evaluation: {
+		quota: number;
+	};
+
+	/** Backend modules that were initialized during startup. */
+	activeModules: string[];
+}
+
+export type FrontendModuleSettings = {
+	/**
+	 * Client settings for [insights](https://docs.n8n.io/insights/) module.
+	 *
+	 * - `summary`: Whether the summary banner should be shown.
+	 * - `dashboard`: Whether the full dashboard should be shown.
+	 * - `dateRanges`: Date range filters available to select.
+	 */
+	insights?: {
 		summary: boolean;
 		dashboard: boolean;
+		dateRanges: InsightsDateRange[];
 	};
-}
+};

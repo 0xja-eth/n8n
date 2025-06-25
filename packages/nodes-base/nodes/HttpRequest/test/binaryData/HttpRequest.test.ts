@@ -1,6 +1,5 @@
+import { NodeTestHarness } from '@nodes-testing/node-test-harness';
 import nock from 'nock';
-
-import { getWorkflowFilenames, testWorkflows } from '@test/nodes/Helpers';
 
 describe('Test Binary Data Download', () => {
 	const baseUrl = 'https://dummy.domain';
@@ -13,6 +12,11 @@ describe('Test Binary Data Download', () => {
 
 		nock(baseUrl)
 			.persist()
+			.get('/path/to/text.txt')
+			.reply(200, Buffer.from('test'), { 'content-type': 'text/plain; charset=utf-8' });
+
+		nock(baseUrl)
+			.persist()
 			.get('/redirect-to-image')
 			.reply(302, {}, { location: baseUrl + '/path/to/image.png' });
 
@@ -21,6 +25,5 @@ describe('Test Binary Data Download', () => {
 		});
 	});
 
-	const workflows = getWorkflowFilenames(__dirname);
-	testWorkflows(workflows);
+	new NodeTestHarness().setupTests({ assertBinaryData: true });
 });

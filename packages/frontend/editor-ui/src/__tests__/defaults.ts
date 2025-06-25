@@ -11,6 +11,7 @@ export const defaultSettings: FrontendSettings = {
 	},
 	allowedModules: {},
 	communityNodesEnabled: false,
+	unverifiedCommunityNodesEnabled: true,
 	defaultLocale: '',
 	endpointForm: '',
 	endpointFormTest: '',
@@ -23,6 +24,7 @@ export const defaultSettings: FrontendSettings = {
 	enterprise: {
 		sharing: false,
 		ldap: false,
+		oidc: false,
 		saml: false,
 		logStreaming: false,
 		debugInEditor: false,
@@ -42,9 +44,6 @@ export const defaultSettings: FrontendSettings = {
 				limit: 1,
 			},
 		},
-	},
-	expressions: {
-		evaluator: 'tournament',
 	},
 	executionMode: 'regular',
 	isMultiMain: false,
@@ -80,6 +79,7 @@ export const defaultSettings: FrontendSettings = {
 	sso: {
 		ldap: { loginEnabled: false, loginLabel: '' },
 		saml: { loginEnabled: false, loginLabel: '' },
+		oidc: { loginEnabled: false, loginUrl: '', callbackUrl: '' },
 	},
 	telemetry: {
 		enabled: false,
@@ -145,12 +145,8 @@ export const defaultSettings: FrontendSettings = {
 	folders: {
 		enabled: false,
 	},
-	insights: {
-		enabled: false,
-		summary: true,
-		dashboard: false,
+	evaluation: {
+		quota: 0,
 	},
-	logsView: {
-		enabled: false,
-	},
+	activeModules: [],
 };
