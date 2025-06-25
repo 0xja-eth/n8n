@@ -16,6 +16,7 @@ export function setupRedisClient(credentials: RedisCredential): RedisClient {
 			host: credentials.host,
 			port: credentials.port,
 			tls: credentials.ssl === true,
+			servername: credentials.sni || undefined,
 		},
 		database: credentials.database,
 		username: credentials.user || undefined,

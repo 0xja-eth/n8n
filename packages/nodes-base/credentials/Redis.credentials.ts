@@ -48,5 +48,17 @@ export class Redis implements ICredentialType {
 			type: 'boolean',
 			default: false,
 		},
+		{
+			displayName: 'SNI',
+			name: 'host',
+			type: 'string',
+			default: 'localhost',
+			required: false,
+			displayOptions: {
+				show: {
+					ssl: [true],
+				},
+			},
+		},
 	];
 }

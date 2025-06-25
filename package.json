@@ -52,6 +52,7 @@
     "@types/jest": "^29.5.3",
     "@types/node": "*",
     "@types/supertest": "^6.0.2",
+    "@types/ws": "8.5.4",
     "cross-env": "^7.0.3",
     "jest": "^29.6.2",
     "jest-environment-jsdom": "^29.6.2",
@@ -72,6 +73,7 @@
     "tsc-watch": "^6.2.0",
     "turbo": "2.3.3",
     "typescript": "*",
+    "vue-tsc": "^2.2.8",
     "zx": "^8.1.4"
   },
   "pnpm": {
@@ -93,7 +95,8 @@
       "@rudderstack/rudder-sdk-node>axios": "1.8.2",
       "ibm-cloud-sdk-core>axios": "1.8.2",
       "langchain>axios": "1.8.2",
-      "snowflake-sdk>axios": "1.8.2"
+      "snowflake-sdk>axios": "1.8.2",
+      "n8n-nodes-friendgrid": "link:../../../../../../Library/pnpm/global/5/node_modules/n8n-nodes-friendgrid"
     },
     "patchedDependencies": {
       "bull@4.12.1": "patches/bull@4.12.1.patch",
@@ -105,5 +108,8 @@
       "eslint-plugin-n8n-local-rules": "patches/eslint-plugin-n8n-local-rules.patch",
       "element-plus@2.4.3": "patches/element-plus@2.4.3.patch"
     }
+  },
+  "dependencies": {
+    "n8n-nodes-friendgrid": "link:../../../../../../Library/pnpm/global/5/node_modules/n8n-nodes-friendgrid"
   }
 }
