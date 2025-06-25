@@ -96,7 +96,6 @@
       "ibm-cloud-sdk-core>axios": "1.8.2",
       "langchain>axios": "1.8.2",
       "snowflake-sdk>axios": "1.8.2",
-      "n8n-nodes-friendgrid": "link:../../../../../../Library/pnpm/global/5/node_modules/n8n-nodes-friendgrid"
     },
     "patchedDependencies": {
       "bull@4.12.1": "patches/bull@4.12.1.patch",
@@ -110,6 +109,5 @@
     }
   },
   "dependencies": {
-    "n8n-nodes-friendgrid": "link:../../../../../../Library/pnpm/global/5/node_modules/n8n-nodes-friendgrid"
   }
 }
