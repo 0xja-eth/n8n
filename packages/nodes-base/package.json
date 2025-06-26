@@ -938,12 +938,8 @@
     "semver": "7.5.4",
     "showdown": "2.1.0",
     "simple-git": "3.17.0",
-<<<<<<< HEAD
-    "snowflake-sdk": "1.12.0",
     "sqlite3": "5.1.7",
-=======
     "snowflake-sdk": "2.1.0",
->>>>>>> 297d3001c0efad8f43cedea1c57f60a55be4581e
     "ssh2-sftp-client": "7.2.3",
     "tmp-promise": "3.0.3",
     "ts-ics": "1.2.2",

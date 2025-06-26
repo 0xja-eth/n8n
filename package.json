@@ -50,14 +50,10 @@
     "@n8n/eslint-config": "workspace:*",
     "@types/jest": "^29.5.3",
     "@types/node": "*",
-<<<<<<< HEAD
-    "@types/supertest": "^6.0.2",
     "@types/ws": "8.5.4",
-=======
     "@types/supertest": "^6.0.3",
     "babel-plugin-transform-import-meta": "^2.3.2",
     "bundlemon": "^3.1.0",
->>>>>>> 297d3001c0efad8f43cedea1c57f60a55be4581e
     "cross-env": "^7.0.3",
     "jest": "^29.6.2",
     "jest-environment-jsdom": "^29.6.2",
